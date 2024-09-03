@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Santosh Pandit - Contact Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('images/bg.webp') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .date-time {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .welcome-message {
+            font-size: 1.8em;
+            margin: 10px 0;
+            animation: fadeIn 3s infinite;
+        }
+
+        .container {
+            text-align: center;
+            padding: 80px 20px 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .carousel {
+            width: 95%;
+            max-width: 800px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            animation: slideIn 2s ease-out;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .personal-info {
+            font-size: 1.5em;
+            margin: 20px 0;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .buttons-section {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            animation: slideInFromRight 2s ease-out;
+        }
+
+        .buttons-section button {
+            padding: 15px 25px;
+            font-size: 1em;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            flex: 0 0 calc(50% - 20px);
+        }
+
+        .buttons-section button:hover {
+            background-color: #555;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .dropdown button {
+            padding: 15px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #e67e22;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 90%;
+            max-width: 300px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown-content button {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            border: none;
+            background: none;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .dropdown-content button:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .popup {
+            position: fixed;
+            display: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 90%;
+            animation: fadeIn 0.5s ease-in-out;
+            color: #333;
+            font-size: 1.2em;
+            position: relative;
+        }
+
+        .popup-content p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #e74c3c;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+            color: #c0392b;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .footer button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .footer button:hover {
+            background-color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .welcome-message {
+                font-size: 1.5em;
+            }
+            .buttons-section button {
+                font-size: 0.9em;
+                padding: 10px 15px;
+                flex: 0 0 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+/* Add styles for the 'name' div */
+#name {
+    background: rgba(255, 255, 255, 0.7); /* Translucent white background */
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: fadeIn 2s ease-in-out, slideUp 2s ease-out;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+/* Style for the h1 tag */
+#name h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #2d3436; /* Dark gray color */
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards 0.5s; /* Delay start of fade-in */
+}
+
+/* Style for the h2 tag */
+#name h2 {
+    font-size: 1.5em;
+    margin: 0;
+    color: #636e72; /* Light gray color */
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards 1s; /* Delay start of fade-in */
+}
+
+/* Animation for fading in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animation for sliding up */
+@keyframes slideUp {
+    0% {
+        transform: translateY(30%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header with Current Date and Time -->
+    <div class="header">
+        <div class="date-time" id="date-time"></div>
+        <div class="welcome-message" id="welcome-message"></div>
+    </div>
+
+    <div class="container">
+        <div class="carousel" id="carousel">
+            <img src="images/1.jpg" alt="Photo 1">
+            <img src="images/2.jpg" alt="Photo 2">
+            <img src="images/3.jpg" alt="Photo 3">
+            <img src="images/4.jpg" alt="Photo 4">
+            <img src="images/5.jpg" alt="Photo 5">
+            <img src="images/6.jpg" alt="Photo 6">
+            <img src="images/7.jpg" alt="Photo 7">
+            <img src="images/8.jpg" alt="Photo 8">
+            <img src="images/9.jpg" alt="Photo 9">
+            <img src="images/10.jpg" alt="Photo 10">
+        </div>
+
+        <!-- Personal Info -->
+        <div class="personal-info">
+            <div id="name">
+                <p><h1>Dr. Santosh Pandit</h1></p>
+                <p><h2>Oral and Maxillofacial Surgeon to be</h2></p>
+            </div>
+        </div>
+
+        <!-- Dropdown for QR Codes -->
+        <div class="dropdown">
+            <button>QR Codes</button>
+            <div class="dropdown-content">
+                <button onclick="showPopup('images/call.png')">&#x1F4F7; Phone</button>
+                <button onclick="showPopup('images/sms.png')">&#x1F4F7; SMS</button>
+                <button onclick="showPopup('images/whatsapp.png')">&#x1F4F7; WhatsApp</button>
+                <button onclick="showPopup('images/email.png')">&#x1F4F7; Email</button>
+                <button onclick="showPopup('images/facebook.png')">&#x1F4F7; Facebook</button>
+                <button onclick="showPopup('images/insta.png')">&#x1F4F7; Instagram</button>
+                <button onclick="showPopup('images/x.png')">&#x1F4F7; X</button>
+                <button onclick="showPopup('images/threads.png')">&#x1F4F7; Threads</button>
+                <button onclick="showPopup('images/vcard.png')">&#x1F4F7; Threads</button>
+                
+                
+            </div>
+        </div>
+
+        <!-- Buttons Section -->
+        <div class="buttons-section">
+            <button onclick="window.open('tel:+9779841701090', '_self')">&#x1F4DE; Call</button>
+            <button onclick="window.open('sms:+9779841701090', '_self')">&#x1F4F1; SMS</button>
+            <button onclick="sendWhatsApp()">&#x1F4AC; WhatsApp Message</button>
+            <button onclick="sendEmail()">&#x2709; Send Email</button>
+            
+            <button onclick="window.open('https://www.facebook.com/share/wF5E91HYjypFpWhr/?mibextid=qi2Omg', '_blank')">&#x1F4F7; Facebook</button>
+            <button onclick="window.open('https://www.instagram.com/surviving_poisone/', '_blank')">&#x1F4F7; Instagram</button>
+            <button onclick="window.open('https://x.com/chelseamania08?t=VV85UYoDh4qg9XoG4F_o_A&s=08', '_blank')">&#x1F426; Follow on X</button>
+            <button onclick="window.open('https://www.threads.net/@surviving_poisone', '_blank')">&#x1F9F5; Follow on Threads</button>
+            <!-- Download vCard Button -->
+    <button onclick="downloadVCard()">&#x1F4C1; Save my number</button>
+
+    <script>
+        function downloadVCard() {
+            window.location.href = 'contact.vcf';
+        }
+    </script>
+        </div>
+    </div>
+
+    <!-- Popup Template for QR Codes -->
+    <div class="popup" id="generic-popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="hidePopup('generic-popup')">&times;</span>
+            <img id="popup-image" src="" alt="QR Code" style="max-width: 300px;">
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <button onclick="showDeveloperInfo()">About Developer</button>
+        <button onclick="sharePage()">Share This Page</button>
+        <button onclick="showPopup('images/page_qr.png')">Share QR</button>
+    </div>
+
+    <!-- Popup for Developer Info -->
+    <div class="popup" id="developer-popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="hidePopup('developer-popup')">&times;</span>
+            <p>This page was developed with love by Anup Chapain. For any inquiries or custom page development, feel free to get in touch!</p>
+            <button onclick="sendDeveloperEmail()">Send me an Email</button>
+            <button onclick="window.open('https://www.instagram.com/anupcp/', '_blank')">See Insta</button>
+            
+        </div>
+    </div>
+
+    <script>
+        // Display Current Date and Time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            document.getElementById('date-time').textContent = now.toLocaleDateString('en-US', options);
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Carousel Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#carousel img');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+        showSlide(currentSlide); // Show first slide initially
+
+        // Welcome Message Logic
+const welcomeMessages = [
+    "Welcome! I'm Dr. Santosh Pandit, and I'm here to ensure your smile is as bright as your future!",
+    "Your teeth are in good hands—mine!",
+    "Let's put a smile on that face, one tooth at a time.",
+    "I’m Dr. Santosh Pandit. Together, we’ll make sure your smile is always your best feature.",
+    "I believe a healthy mouth is a gateway to a healthy life. Let’s walk through it together!",
+    "Welcome! Let’s make sure every smile you share is a masterpiece.",
+    "I promise to take your oral health as seriously as I take my own coffee breaks. And that's serious!",
+    "Sit back, relax, and let’s embark on a journey to your healthiest smile.",
+    "Here, we don’t just fix teeth; we boost confidence!",
+    "Remember, I’m not just a dentist—I’m your partner in keeping your smile healthy and bright.",
+    "Life is too short for bad teeth. Let’s fix that!",
+    "Welcome! Where every tooth counts, and every patient matters.",
+    "I’m here to give you a reason to smile, every day, pain-free.",
+    "Let’s make your smile the best thing you wear today.",
+    "Welcome! Here, laughter is the best medicine, but regular check-ups don’t hurt either!",
+    "Your smile is my canvas. Let's create a masterpiece together.",
+    "Teeth are like diamonds—they last forever when you take good care of them. I’m here to help with that!",
+    "Healthy teeth, happy life—that’s my motto. Let’s make it yours too!",
+    "I’m Dr. Santosh Pandit, and I believe in smiles that last a lifetime.",
+    "Good teeth, good mood, good life. Let’s start today!",
+    "They say laughter is the best medicine—I say it’s a great dentist!",
+    "The road to a great smile starts here. Buckle up!",
+    "I’m not just fixing teeth, I’m building confidence—one smile at a time.",
+    "Welcome! Your smile is the best accessory you have. Let’s keep it shining.",
+    "Here to make sure every visit ends with a smile.",
+    "Every patient is unique, and every smile tells a story. Let’s write yours together.",
+    "Welcome! A smile is the universal language of kindness. Let’s speak it fluently.",
+    "I’m here to protect your teeth, your gums, and your pride. Let’s do this!",
+    "I treat teeth, but I care for people. Let’s get started.",
+    "Welcome! Ready to make those pearly whites sparkle?",
+    "I’m here to remind you that a great smile is always in style.",
+    "Let's turn that frown upside down and keep it that way!",
+    "Your oral health journey starts now, and I'm your guide!",
+    "Welcome! Because your smile deserves the best, and so do you.",
+    "Healthy teeth, happy heart. Let’s work on both!",
+    "I'm here to make sure your smile is unforgettable—for all the right reasons!",
+    "Welcome! Every smile is a unique work of art. Let’s make yours a masterpiece.",
+    "Your journey to a healthier, brighter smile begins with a single step—into my office!",
+    "Because a day without a smile is a day wasted. Let’s not waste any more days!",
+    "I’m here to keep your teeth strong, your gums healthy, and your spirit high.",
+    "Welcome! Let’s make sure your smile reflects the wonderful person you are.",
+    "Think of me as your smile’s personal trainer. Let’s get those teeth in shape!",
+    "I’m here to remind you that the best smile is a healthy one. Let’s create it together.",
+    "Welcome! Your comfort is my priority, and your smile is my mission.",
+    "Because every smile has a story, and I’m here to make sure yours is a happy one.",
+    "Welcome to a place where your smile is my passion, and your health is my mission.",
+    "Together, we’ll make sure your smile lights up every room you walk into.",
+    "Here, it’s not just about teeth—it’s about how you feel when you leave. Let’s make it great!",
+    "Welcome! I’m here to make sure your visits are pain-free and full of smiles.",
+    "Think of me as the guardian of your smile. Let’s keep it safe and sound!",
+    "Welcome! I promise to keep your smile shining bright and your spirits even brighter."
+];
+
+
+        function showWelcomeMessage() {
+            const messageIndex = Math.floor(Math.random() * welcomeMessages.length);
+            document.getElementById('welcome-message').innerText = welcomeMessages[messageIndex];
+        }
+
+        setInterval(showWelcomeMessage, 4000); // Change welcome message every 4 seconds
+        showWelcomeMessage(); // Initial welcome message
+
+        // Popup Logic
+        function showPopup(imageSrc) {
+            const popup = document.getElementById('generic-popup');
+            const popupImage = document.getElementById('popup-image');
+            popupImage.src = imageSrc;
+            popup.style.display = 'flex';
+        }
+
+        function hidePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
+        }
+
+        // Send Email Function
+        function sendEmail() {
+            window.location.href = "mailto:bless288maniac@gmail.com?subject=from your personal page";
+        }
+
+        // WhatsApp Message Function
+        function sendWhatsApp() {
+            window.open("https://wa.me/9779841701090?text=Hello%20Dr.%20Santosh%20Pandit,%20I%20found%20your%20personal%20page", "_blank");
+        }
+
+        // Function to share the page using the native share feature
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Check out Dr. Santosh Pandit\'s Personal Page!',
+                    text: 'Explore Dr. Santosh Pandit\'s personal page and more!',
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                }).catch((error) => {
+                    console.error('Error sharing:', error);
+                });
+            } else {
+                alert('Sharing is not supported on this device. Please use the QR code instead.');
+            }
+        }
+
+        // Show Developer Info Popup
+        function showDeveloperInfo() {
+            document.getElementById('developer-popup').style.display = 'flex';
+        }
+
+        // Send Email to Developer
+        function sendDeveloperEmail() {
+            window.location.href = "mailto:pleasedontgetconfused@gmail.com?subject=Enquiry From Santosh's page";
+        }
+
+    </script>
+</body>
+</html>
