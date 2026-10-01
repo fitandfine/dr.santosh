@@ -308,6 +308,23 @@
       font-size: .94rem;
     }
 
+
+    .professional-grid { display:grid; grid-template-columns:1fr 1.35fr; gap:16px; align-items:start; }
+    .professional-card { padding:27px; border:1px solid var(--line); border-radius:var(--radius); background:rgba(255,255,255,.82); box-shadow:0 9px 30px rgba(7,40,59,.05); }
+    .professional-card.full { grid-column:1 / -1; }
+    .professional-card h3 { margin:0 0 16px; color:var(--navy); font-size:1.12rem; }
+    .specialty-list { display:grid; grid-template-columns:1fr 1fr; gap:9px 18px; margin:0; padding:0; list-style:none; }
+    .specialty-list li { position:relative; padding-left:20px; color:var(--muted); font-size:.94rem; }
+    .specialty-list li::before { content:"•"; position:absolute; left:2px; color:var(--teal); font-size:1.25rem; font-weight:900; }
+    .timeline { margin:0; padding:0 0 0 20px; list-style:none; border-left:2px solid rgba(8,126,139,.18); }
+    .timeline li { position:relative; padding:0 0 17px 15px; }
+    .timeline li:last-child { padding-bottom:0; }
+    .timeline li::before { content:""; position:absolute; left:-26px; top:7px; width:10px; height:10px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 4px var(--soft); }
+    .timeline strong { display:block; color:var(--navy); font-size:.94rem; line-height:1.4; }
+    .timeline span { display:block; margin-top:2px; color:var(--muted); font-size:.86rem; line-height:1.45; }
+    .nmc-badge { display:inline-flex; margin-top:20px; padding:9px 13px; border:1px solid #ead8aa; border-radius:999px; background:#fbf4e5; color:#7c5a13; font-size:.84rem; font-weight:850; }
+    .philosophy { margin:0; padding:4px 0 4px 21px; border-left:4px solid var(--gold); color:var(--navy); font-size:clamp(1.05rem,2vw,1.25rem); font-weight:750; line-height:1.7; }
+
     .social-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -489,6 +506,8 @@
       .hero-card { grid-template-columns: 270px 1fr; gap: 38px; }
       .info-grid { grid-template-columns: 1fr 1fr; }
       .social-grid { grid-template-columns: repeat(2, 1fr); }
+      .professional-grid { grid-template-columns: 1fr; }
+      .professional-card.full { grid-column:auto; }
     }
 
     @media (max-width: 680px) {
@@ -508,6 +527,8 @@
       .section { padding-bottom: 60px; }
       .info-grid { grid-template-columns: 1fr; }
       .social-grid { grid-template-columns: 1fr 1fr; }
+      .specialty-list { grid-template-columns:1fr; }
+      .professional-card { padding:22px 19px; }
       .video-placeholder { min-height: 290px; padding: 25px 18px; }
     }
 
@@ -592,51 +613,55 @@
     <section class="section" id="about">
       <div class="page">
         <div class="section-heading">
-          <h2>
-            <span data-lang="ne">संक्षिप्त परिचय</span>
-            <span data-lang="en">About Dr. Santosh</span>
-          </h2>
-          <p>
-            <span data-lang="ne">आवश्यक जानकारीलाई छोटो, स्पष्ट र पेशागत रूपमा प्रस्तुत गरिएको छ।</span>
-            <span data-lang="en">The essential information, presented clearly and professionally.</span>
-          </p>
+          <h2><span data-lang="ne">व्यावसायिक परिचय</span><span data-lang="en">Professional Profile</span></h2>
+          <p><span data-lang="ne">ओरल तथा म्याक्सिलोफेसियल सर्जरीमा विशेषज्ञता, शिक्षा तथा चिकित्सकीय अनुभव।</span><span data-lang="en">Expertise, education and clinical experience in Oral &amp; Maxillofacial Surgery.</span></p>
         </div>
-
-        <div class="info-grid">
-          <article class="info-card">
+        <div class="professional-grid">
+          <article class="professional-card">
             <div class="icon">✚</div>
-            <h3>
-              <span data-lang="ne">विशेषज्ञता</span>
-              <span data-lang="en">Speciality</span>
-            </h3>
-            <p>
-              <span data-lang="ne">ओरल तथा म्याक्सिलोफेसियल सर्जरी</span>
-              <span data-lang="en">Oral &amp; Maxillofacial Surgery</span>
-            </p>
+            <h3><span data-lang="ne">विशेषज्ञता</span><span data-lang="en">Areas of Expertise</span></h3>
+            <div data-lang="ne"><ul class="specialty-list">
+              <li>ट्रमा तथा फ्र्याक्चर व्यवस्थापन</li><li>तेस्रो मोलर (बुद्धि बंगारा) निकाल्ने शल्यक्रिया</li>
+              <li>सफ्ट टिस्यु व्यवस्थापन</li><li>सौम्य घाउ/ट्युमर व्यवस्थापन</li>
+              <li>डेन्टल इम्प्लान्ट तथा पुनर्निर्माण</li><li>TMJ सम्बन्धी समस्या</li>
+              <li>अर्थोग्नाथिक सर्जरी</li><li>ओन्कोलोजी तथा पुनर्निर्माण</li>
+            </ul></div>
+            <div data-lang="en"><ul class="specialty-list">
+              <li>Trauma &amp; fracture management</li><li>Third molar extraction</li>
+              <li>Soft tissue management</li><li>Benign lesion management</li>
+              <li>Implant &amp; reconstruction</li><li>TMJ disorders</li>
+              <li>Orthognathic surgery</li><li>Oncology &amp; reconstruction</li>
+            </ul></div>
           </article>
-
-          <article class="info-card">
+          <article class="professional-card">
             <div class="icon">✓</div>
-            <h3>
-              <span data-lang="ne">व्यावसायिक स्थिति</span>
-              <span data-lang="en">Professional Status</span>
-            </h3>
-            <p>
-              <span data-lang="ne">स्नातक भइसकेका चिकित्सक</span>
-              <span data-lang="en">Graduated medical professional</span>
-            </p>
+            <h3><span data-lang="ne">शिक्षा तथा व्यावसायिक यात्रा</span><span data-lang="en">Education &amp; Professional Journey</span></h3>
+            <div data-lang="ne"><ul class="timeline">
+              <li><strong>SLC — श्री सप्तऋषि माध्यमिक विद्यालय</strong><span>2007</span></li>
+              <li><strong>+2 — क्यारिबियन कलेज</strong><span>2009</span></li>
+              <li><strong>BDS — बी.पी. कोइराला स्वास्थ्य विज्ञान प्रतिष्ठान</strong><span>2011–2016</span></li>
+              <li><strong>इन्टर्नसिप — BPKIHS, गाईघाट तथा कोशी अस्पताल</strong><span>2016</span></li>
+              <li><strong>डेन्टल सर्जन — पर्वत जिल्ला अस्पताल</strong><span>2017–2019</span></li>
+              <li><strong>डेन्टल सर्जन — टीकापुर अस्पताल</strong><span>2019–2023</span></li>
+              <li><strong>MDS — ओरल तथा म्याक्सिलोफेसियल सर्जरी</strong><span>युनिभर्सल कलेज अफ मेडिकल साइन्सेज, त्रिभुवन विश्वविद्यालय · 2023–2026</span></li>
+            </ul><div class="nmc-badge">NMC नं. 19998</div></div>
+            <div data-lang="en"><ul class="timeline">
+              <li><strong>SLC — Shree Sapta Rishi Secondary School</strong><span>2007</span></li>
+              <li><strong>+2 — Caribbean College</strong><span>2009</span></li>
+              <li><strong>BDS — B.P. Koirala Institute of Health Sciences</strong><span>2011–2016</span></li>
+              <li><strong>Internship — BPKIHS, Gaighat &amp; Koshi Hospital</strong><span>2016</span></li>
+              <li><strong>Dental Surgeon — Parbat District Hospital</strong><span>2017–2019</span></li>
+              <li><strong>Dental Surgeon — Tikapur Hospital</strong><span>2019–2023</span></li>
+              <li><strong>MDS — Oral &amp; Maxillofacial Surgery</strong><span>Universal College of Medical Sciences, TU · 2023–2026</span></li>
+            </ul><div class="nmc-badge">NMC No. 19998</div></div>
           </article>
-
-          <article class="info-card">
+          <article class="professional-card full">
             <div class="icon">♡</div>
-            <h3>
-              <span data-lang="ne">दृष्टिकोण</span>
-              <span data-lang="en">Approach</span>
-            </h3>
-            <p>
-              <span data-lang="ne">बिरामीको स्वास्थ्य, सुरक्षा र सहज अनुभवमा केन्द्रित।</span>
-              <span data-lang="en">Focused on patient care, safety and a comfortable experience.</span>
-            </p>
+            <h3><span data-lang="ne">दृष्टिकोण / दर्शन</span><span data-lang="en">Approach / Philosophy</span></h3>
+            <blockquote class="philosophy">
+              <span data-lang="ne">हरेक मुस्कानको आफ्नै कथा हुन्छ।<br>हरेक शल्यक्रिया अझ राम्रो जीवनतर्फको एक कदम हो।</span>
+              <span data-lang="en">Every smile has a story.<br>Every surgery is a step towards a better life.</span>
+            </blockquote>
           </article>
         </div>
       </div>
@@ -764,8 +789,8 @@
         <span data-lang="en">Oral &amp; Maxillofacial Surgeon</span>
       </p>
       <p>
-        <span data-lang="ne"><a href="https://fitandfine.github.io/anup" style="color: #fff; text-decoration: none;"> <i class="fas fa-tools"></i> By</a></span>
-        <span data-lang="en"><a href="https://fitandfine.github.io/anup" style="color: #fff; text-decoration: none;"> <i class="fas fa-tools"></i> By</a></span>
+        <span data-lang="ne"><a href="https://fitandfine.github.io/anup" style="color: #000; text-decoration: none;"> <i class="fas fa-tools"></i>Built By</a></span>
+        <span data-lang="en"><a href="https://fitandfine.github.io/anup" style="color: #000; text-decoration: none;"> <i class="fas fa-tools"></i> Built By</a></span>
       </p>
     </div>
   </footer>
