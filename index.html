@@ -804,138 +804,256 @@
     </div>
   </div>
 
-  <script>
-    /*
-      ================================================================
-      CONFIGURATION
-      ================================================================
-      Put the YouTube VIDEO ID below when you know the exact video.
-      Example:
-        https://www.youtube.com/watch?v=ABC123XYZ
-        VIDEO_ID = "ABC123XYZ"
+ <script>
+  /*
+    ================================================================
+    YOUTUBE VIDEO CONFIGURATION
+    ================================================================
 
-      The YouTube iframe is intentionally NOT created during page load.
-      It is created only after the visitor clicks "Watch Video".
-    */
-    const VIDEO_ID = "https://youtube.com/shorts/eI2HUgj3GdQ?si=PUTOT9QrPc34PhvA";
+    This is a YouTube Short:
+    https://youtube.com/shorts/eI2HUgj3GdQ
 
-    const body = document.body;
-    const neBtn = document.getElementById("neBtn");
-    const enBtn = document.getElementById("enBtn");
+    IMPORTANT:
+    YouTube embeds require ONLY the video ID, not the full URL.
 
-    function setLanguage(language) {
-      const english = language === "en";
+    The YouTube iframe is NOT created when the page loads.
+    It is created only after the visitor clicks "Watch Video".
+    This prevents YouTube from affecting the initial page load.
+  */
 
-      body.classList.toggle("english", english);
-      document.documentElement.lang = english ? "en" : "ne";
+  const VIDEO_ID = "eI2HUgj3GdQ";
 
-      neBtn.classList.toggle("active", !english);
-      enBtn.classList.toggle("active", english);
+  const body = document.body;
+  const neBtn = document.getElementById("neBtn");
+  const enBtn = document.getElementById("enBtn");
 
-      try {
-        localStorage.setItem("santosh-language", language);
-      } catch (_) {}
 
-      updateDynamicText();
+  /* ================================================================
+     LANGUAGE
+     ================================================================ */
+
+  function setLanguage(language) {
+    const english = language === "en";
+
+    body.classList.toggle("english", english);
+    document.documentElement.lang = english ? "en" : "ne";
+
+    neBtn.classList.toggle("active", !english);
+    enBtn.classList.toggle("active", english);
+
+    try {
+      localStorage.setItem("santosh-language", language);
+    } catch (_) {}
+
+    updateDynamicText();
+  }
+
+
+  function updateDynamicText() {
+    document.title = body.classList.contains("english")
+      ? "Dr. Santosh Pandit | Oral & Maxillofacial Surgeon"
+      : "डा. सन्तोष पण्डित | ओरल तथा म्याक्सिलोफेसियल सर्जन";
+  }
+
+
+  // Nepali is the default language.
+  // If the visitor previously selected English, remember that choice.
+  (function initLanguage() {
+    let saved = null;
+
+    try {
+      saved = localStorage.getItem("santosh-language");
+    } catch (_) {}
+
+    setLanguage(saved === "en" ? "en" : "ne");
+  })();
+
+
+  /* ================================================================
+     QR CODE
+     ================================================================ */
+
+  function openQR(imageSrc) {
+    const modal = document.getElementById("qrModal");
+    const image = document.getElementById("qrImage");
+
+    image.src = imageSrc;
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+
+  function closeQR() {
+    document.getElementById("qrModal").classList.remove("open");
+    document.getElementById("qrImage").src = "";
+    document.body.style.overflow = "";
+  }
+
+
+  document.getElementById("qrModal").addEventListener("click", function (event) {
+    if (event.target === this) {
+      closeQR();
+    }
+  });
+
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeQR();
+    }
+  });
+
+
+  /* ================================================================
+     LAZY-LOADED YOUTUBE SHORT
+     ================================================================ */
+
+  function loadVideo() {
+    const card = document.getElementById("videoCard");
+
+    // Prevent loading the iframe more than once.
+    if (card.dataset.videoLoaded === "true") {
+      return;
     }
 
-    function updateDynamicText() {
-      // Keep document metadata language-appropriate without reloading the page.
-      document.title = body.classList.contains("english")
-        ? "Dr. Santosh Pandit | Oral & Maxillofacial Surgeon"
-        : "डा. सन्तोष पण्डित | ओरल तथा म्याक्सिलोफेसियल सर्जन";
-    }
-
-    // Default is Nepali, as requested. A visitor's previous choice is respected.
-    (function initLanguage() {
-      let saved = null;
-      try { saved = localStorage.getItem("santosh-language"); } catch (_) {}
-      setLanguage(saved === "en" ? "en" : "ne");
-    })();
-
-    function openQR(imageSrc) {
-      const modal = document.getElementById("qrModal");
-      const image = document.getElementById("qrImage");
-
-      image.src = imageSrc;
-      modal.classList.add("open");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeQR() {
-      document.getElementById("qrModal").classList.remove("open");
-      document.getElementById("qrImage").src = "";
-      document.body.style.overflow = "";
-    }
-
-    document.getElementById("qrModal").addEventListener("click", function (event) {
-      if (event.target === this) closeQR();
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") closeQR();
-    });
-
-    function loadVideo() {
-      const card = document.getElementById("videoCard");
-
-      if (!VIDEO_ID || VIDEO_ID === "REPLACE_WITH_YOUTUBE_VIDEO_ID") {
-        const english = body.classList.contains("english");
-        card.innerHTML = `
-          <div class="video-placeholder">
-            <div>
-              <h3>${english ? "YouTube video is ready to be connected" : "YouTube भिडियो जोड्न बाँकी छ"}</h3>
-              <p>${english
-                ? "Set VIDEO_ID near the bottom of index.html to the required YouTube video ID."
-                : "index.html को अन्त्यतिर रहेको VIDEO_ID मा सम्बन्धित YouTube भिडियोको ID राख्नुहोस्।"}</p>
-            </div>
-          </div>`;
-        return;
-      }
-
-      const iframe = document.createElement("iframe");
-      iframe.className = "youtube-frame";
-      iframe.title = "Dr. Santosh Pandit video";
-      iframe.loading = "lazy";
-      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-      iframe.allowFullscreen = true;
-
-      // YouTube is contacted only now, after explicit user interaction.
-      iframe.src = "https://www.youtube-nocookie.com/embed/" +
-                   encodeURIComponent(VIDEO_ID) +
-                   "?rel=0&modestbranding=1";
-
-      card.replaceChildren(iframe);
-    }
-
-    function downloadVCard() {
-      window.location.href = "contact.vcf";
-    }
-
-    async function sharePage() {
+    if (!VIDEO_ID) {
       const english = body.classList.contains("english");
 
-      if (navigator.share) {
-        try {
-          await navigator.share({
-            title: "Dr. Santosh Pandit",
-            text: english
-              ? "Dr. Santosh Pandit's professional profile"
-              : "डा. सन्तोष पण्डितको व्यावसायिक प्रोफाइल",
-            url: window.location.href
-          });
-        } catch (_) {}
-      } else {
-        try {
-          await navigator.clipboard.writeText(window.location.href);
-          alert(english ? "Page link copied." : "पेजको लिंक कपी भयो।");
-        } catch (_) {
-          alert(english
+      card.innerHTML = `
+        <div class="video-placeholder">
+          <div>
+            <h3>
+              ${english
+                ? "Video is currently unavailable"
+                : "भिडियो हाल उपलब्ध छैन"}
+            </h3>
+
+            <p>
+              ${english
+                ? "Please try again later."
+                : "कृपया केही समयपछि पुनः प्रयास गर्नुहोस्।"}
+            </p>
+          </div>
+        </div>
+      `;
+
+      return;
+    }
+
+
+    /*
+      Create a vertical 9:16 container because this video
+      is a YouTube Short rather than a landscape video.
+
+      No YouTube iframe exists before this function runs.
+    */
+
+    const videoWrapper = document.createElement("div");
+
+    videoWrapper.style.width = "100%";
+    videoWrapper.style.maxWidth = "420px";
+    videoWrapper.style.aspectRatio = "9 / 16";
+    videoWrapper.style.margin = "0 auto";
+    videoWrapper.style.background = "#000";
+    videoWrapper.style.overflow = "hidden";
+    videoWrapper.style.borderRadius = "18px";
+
+
+    const iframe = document.createElement("iframe");
+
+    iframe.title = "Dr. Santosh Pandit YouTube Short";
+
+    iframe.style.display = "block";
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.border = "0";
+
+    /*
+      Browser-level lazy loading is retained as an additional safeguard.
+
+      More importantly, the iframe itself does not exist until the
+      visitor explicitly clicks the Watch Video button.
+    */
+    iframe.loading = "lazy";
+
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+    iframe.allowFullscreen = true;
+
+    /*
+      youtube-nocookie.com is used instead of the normal YouTube
+      embed domain.
+
+      autoplay=1 starts playback because this iframe is being created
+      directly in response to the visitor's click.
+    */
+    iframe.src =
+      "https://www.youtube-nocookie.com/embed/" +
+      encodeURIComponent(VIDEO_ID) +
+      "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
+
+
+    videoWrapper.appendChild(iframe);
+
+    // Remove the placeholder and insert the video.
+    card.replaceChildren(videoWrapper);
+
+    // Remember that the video has already been loaded.
+    card.dataset.videoLoaded = "true";
+  }
+
+
+  /* ================================================================
+     VCARD
+     ================================================================ */
+
+  function downloadVCard() {
+    window.location.href = "contact.vcf";
+  }
+
+
+  /* ================================================================
+     SHARE PAGE
+     ================================================================ */
+
+  async function sharePage() {
+    const english = body.classList.contains("english");
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Dr. Santosh Pandit",
+
+          text: english
+            ? "Dr. Santosh Pandit's professional profile"
+            : "डा. सन्तोष पण्डितको व्यावसायिक प्रोफाइल",
+
+          url: window.location.href
+        });
+      } catch (_) {}
+
+    } else {
+
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+
+        alert(
+          english
+            ? "Page link copied."
+            : "पेजको लिंक कपी भयो।"
+        );
+
+      } catch (_) {
+
+        alert(
+          english
             ? "Sharing is not supported on this device."
-            : "यो उपकरणमा sharing सुविधा उपलब्ध छैन।");
-        }
+            : "यो उपकरणमा sharing सुविधा उपलब्ध छैन।"
+        );
       }
     }
-  </script>
+  }
+</script>
 </body>
 </html>
