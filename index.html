@@ -1,547 +1,916 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9S4G5R4ZMC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b3954">
+  <meta name="description" content="Dr. Santosh Pandit — Oral and Maxillofacial Surgeon. Contact and social profile.">
 
-  gtag('config', 'G-9S4G5R4ZMC');
-</script>
-    <title>Dr. Santosh Pandit - Contact Page</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: url('images/bg.webp') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            overflow-x: hidden;
-        }
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9S4G5R4ZMC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9S4G5R4ZMC');
+  </script>
 
-        .header {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 10px 0;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
+  <title>Dr. Santosh Pandit | Oral & Maxillofacial Surgeon</title>
 
-        .date-time {
-            font-size: 1.2em;
-            margin-bottom: 5px;
-            animation: fadeIn 2s ease-out;
-        }
-
-        .welcome-message {
-            font-size: 1.8em;
-            margin: 10px 0;
-            animation: fadeIn 3s infinite;
-        }
-
-        .container {
-            text-align: center;
-            padding: 80px 20px 20px;
-            animation: fadeIn 2s ease-out;
-        }
-
-        .carousel {
-            width: 95%;
-            max-width: 800px;
-            margin: 20px auto;
-            overflow: hidden;
-            border-radius: 10px;
-            animation: slideIn 2s ease-out;
-        }
-
-        .carousel img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            display: block;
-            border-radius: 10px;
-        }
-
-        .personal-info {
-            font-size: 1.5em;
-            margin: 20px 0;
-            animation: fadeIn 2s ease-out;
-        }
-
-        .buttons-section {
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            animation: slideInFromRight 2s ease-out;
-        }
-
-        .buttons-section button {
-            padding: 15px 25px;
-            font-size: 1em;
-            color: white;
-            background-color: #333;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            flex: 0 0 calc(50% - 20px);
-        }
-
-        .buttons-section button:hover {
-            background-color: #555;
-            transform: scale(1.1);
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        .dropdown button {
-            padding: 15px 20px;
-            font-size: 1em;
-            color: white;
-            background-color: #e67e22;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 90%;
-            max-width: 300px;
-            text-align: center;
-            transition: background-color 0.3s;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #ffffff;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .dropdown-content button {
-            color: #333;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            border: none;
-            background: none;
-            width: 100%;
-            cursor: pointer;
-        }
-
-        .dropdown-content button:hover {
-            background-color: #f1f1f1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .popup {
-            position: fixed;
-            display: none;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1001;
-        }
-
-        .popup-content {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            max-width: 90%;
-            animation: fadeIn 0.5s ease-in-out;
-            color: #333;
-            font-size: 1.2em;
-            position: relative;
-        }
-
-        .popup-content p {
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 1.5em;
-            color: #e74c3c;
-            transition: transform 0.3s, color 0.3s;
-        }
-
-        .close-btn:hover {
-            transform: rotate(90deg);
-            color: #c0392b;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .footer button {
-            padding: 10px 20px;
-            font-size: 1em;
-            color: white;
-            background-color: #333;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .footer button:hover {
-            background-color: #555;
-        }
-
-        @media (max-width: 768px) {
-            .welcome-message {
-                font-size: 1.5em;
-            }
-            .buttons-section button {
-                font-size: 0.9em;
-                padding: 10px 15px;
-                flex: 0 0 100%;
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes slideInFromRight {
-            from { transform: translateX(100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-/* Add styles for the 'name' div */
-#name {
-    background: rgba(255, 255, 255, 0.7); /* Translucent white background */
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    width: fit-content;
-    margin: auto;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: fadeIn 2s ease-in-out, slideUp 2s ease-out;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow */
-}
-
-/* Style for the h1 tag */
-#name h1 {
-    font-size: 2.5em;
-    margin: 0;
-    color: #2d3436; /* Dark gray color */
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out forwards 0.5s; /* Delay start of fade-in */
-}
-
-/* Style for the h2 tag */
-#name h2 {
-    font-size: 1.5em;
-    margin: 0;
-    color: #636e72; /* Light gray color */
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out forwards 1s; /* Delay start of fade-in */
-}
-
-/* Animation for fading in */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
+  <style>
+    :root {
+      --navy: #0b3954;
+      --navy-dark: #07283b;
+      --teal: #087e8b;
+      --gold: #c79a3b;
+      --cream: #f7f4ee;
+      --white: #ffffff;
+      --ink: #17212b;
+      --muted: #607080;
+      --line: #e6e9ec;
+      --soft: #eef5f6;
+      --shadow: 0 18px 50px rgba(7, 40, 59, .12);
+      --radius: 22px;
     }
-    100% {
-        opacity: 1;
-    }
-}
 
-/* Animation for sliding up */
-@keyframes slideUp {
-    0% {
-        transform: translateY(30%);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
+    * { box-sizing: border-box; }
 
-    </style>
+    html {
+      scroll-behavior: smooth;
+      background: var(--cream);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 90% 0%, rgba(8,126,139,.10), transparent 28rem),
+        radial-gradient(circle at 0% 35%, rgba(199,154,59,.08), transparent 24rem),
+        var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", Roboto, "Noto Sans Devanagari", Arial, sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(247,244,238,.88);
+      border-bottom: 1px solid rgba(11,57,84,.08);
+    }
+
+    .topbar-inner {
+      width: min(1120px, calc(100% - 32px));
+      min-height: 64px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--navy);
+      color: white;
+      font-size: 15px;
+    }
+
+    .language-toggle {
+      display: inline-flex;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 5px 18px rgba(7,40,59,.06);
+    }
+
+    .language-toggle button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: .82rem;
+      font-weight: 800;
+      padding: 7px 13px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .language-toggle button.active {
+      background: var(--navy);
+      color: white;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    .hero {
+      min-height: calc(100svh - 64px);
+      display: grid;
+      place-items: center;
+      padding: 60px 0 70px;
+    }
+
+    .hero-card {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(260px, 360px) 1fr;
+      align-items: center;
+      gap: clamp(34px, 7vw, 88px);
+      padding: clamp(28px, 5vw, 62px);
+      border-radius: 32px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(11,57,84,.08);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-wrap {
+      position: relative;
+      width: min(100%, 330px);
+      margin: auto;
+    }
+
+    .profile-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 14px -14px -14px 14px;
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(8,126,139,.22), rgba(199,154,59,.22));
+      z-index: 0;
+    }
+
+    .profile-photo {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 28px;
+      background: #e9eef0;
+      box-shadow: 0 20px 45px rgba(7,40,59,.18);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      font-size: .78rem;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2.25rem, 5vw, 4.3rem);
+      line-height: 1.04;
+      letter-spacing: -.045em;
+    }
+
+    .title {
+      margin: 14px 0 18px;
+      color: var(--ink);
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      font-weight: 700;
+    }
+
+    .intro {
+      max-width: 670px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .gold-line {
+      width: 64px;
+      height: 4px;
+      margin: 22px 0;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 11px;
+      margin-top: 27px;
+    }
+
+    .btn {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 16px;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      text-decoration: none;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 9px 22px rgba(7,40,59,.12);
+    }
+
+    .btn-primary { background: var(--navy); color: white; }
+    .btn-teal { background: var(--teal); color: white; }
+    .btn-light { background: white; color: var(--navy); border-color: var(--line); }
+    .btn-gold { background: #fbf4e5; color: #7c5a13; border-color: #ead8aa; }
+
+    .section {
+      padding: 30px 0 80px;
+      scroll-margin-top: 85px;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 7px;
+      color: var(--navy);
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      letter-spacing: -.035em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .info-card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 9px 30px rgba(7,40,59,.05);
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 12px;
+      background: var(--soft);
+      color: var(--teal);
+      font-size: 19px;
+    }
+
+    .info-card h3 {
+      margin: 0 0 7px;
+      color: var(--navy);
+      font-size: 1.06rem;
+    }
+
+    .info-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 13px;
+    }
+
+    .social {
+      min-height: 104px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 850;
+      box-shadow: 0 7px 25px rgba(7,40,59,.05);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .social:hover {
+      transform: translateY(-3px);
+      border-color: rgba(8,126,139,.35);
+    }
+
+    .social-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .social small {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: .75rem;
+    }
+
+    .video-card {
+      overflow: hidden;
+      border-radius: 25px;
+      background: var(--navy-dark);
+      box-shadow: var(--shadow);
+    }
+
+    .video-placeholder {
+      min-height: 330px;
+      display: grid;
+      place-items: center;
+      padding: 35px;
+      text-align: center;
+      color: white;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(8,126,139,.45), transparent 20rem),
+        linear-gradient(145deg, #092c40, #061d2b);
+    }
+
+    .play {
+      width: 74px;
+      height: 74px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 18px;
+      border: 0;
+      border-radius: 50%;
+      background: white;
+      color: var(--navy);
+      font-size: 1.6rem;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    }
+
+    .video-placeholder h3 {
+      margin: 0 0 7px;
+      font-size: 1.35rem;
+    }
+
+    .video-placeholder p {
+      max-width: 530px;
+      margin: 0 auto 20px;
+      color: rgba(255,255,255,.72);
+      font-size: .92rem;
+    }
+
+    .youtube-frame {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      background: #000;
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 18px;
+    }
+
+    .footer {
+      padding: 35px 0 50px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    .footer strong { color: var(--navy); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(3,17,26,.72);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal.open { display: flex; }
+
+    .modal-box {
+      position: relative;
+      width: min(440px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      padding: 30px;
+      border-radius: 25px;
+      background: white;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0,0,0,.28);
+    }
+
+    .modal-box img {
+      display: block;
+      width: min(300px, 100%);
+      margin: 15px auto 0;
+      border-radius: 14px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 13px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: #f1f3f4;
+      color: var(--navy);
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    [data-lang="en"] { display: none; }
+    body.english [data-lang="ne"] { display: none; }
+    body.english [data-lang="en"] { display: block; }
+    body.english span[data-lang="en"],
+    body.english strong[data-lang="en"] { display: inline; }
+    body:not(.english) span[data-lang="ne"],
+    body:not(.english) strong[data-lang="ne"] { display: inline; }
+
+    @media (max-width: 900px) {
+      .hero-card { grid-template-columns: 270px 1fr; gap: 38px; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      .social-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 680px) {
+      .topbar-inner, .page { width: min(100% - 22px, 1120px); }
+      .brand-text { display: none; }
+      .hero { min-height: auto; padding: 28px 0 50px; }
+      .hero-card {
+        grid-template-columns: 1fr;
+        padding: 25px 19px 30px;
+        gap: 30px;
+        border-radius: 24px;
+      }
+      .profile-wrap { width: min(78vw, 285px); }
+      h1 { font-size: clamp(2.15rem, 12vw, 3.25rem); }
+      .actions { grid-template-columns: 1fr 1fr; }
+      .btn { min-height: 47px; padding: 10px 9px; font-size: .87rem; }
+      .section { padding-bottom: 60px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .social-grid { grid-template-columns: 1fr 1fr; }
+      .video-placeholder { min-height: 290px; padding: 25px 18px; }
+    }
+
+    @media (max-width: 400px) {
+      .actions { grid-template-columns: 1fr; }
+      .social-grid { grid-template-columns: 1fr; }
+      .language-toggle button { padding: 7px 10px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Header with Current Date and Time -->
-    <div class="header">
-        <div class="date-time" id="date-time"></div>
-        <div class="welcome-message" id="welcome-message"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#" aria-label="Dr. Santosh Pandit">
+        <span class="brand-mark">SP</span>
+        <span class="brand-text">Dr. Santosh Pandit</span>
+      </a>
+
+      <div class="language-toggle" aria-label="Language selection">
+        <button id="neBtn" class="active" type="button" onclick="setLanguage('ne')">नेपाली</button>
+        <button id="enBtn" type="button" onclick="setLanguage('en')">English</button>
+      </div>
     </div>
+  </header>
 
-    <div class="container">
-        <div class="carousel" id="carousel">
-            <img src="images/1.jpg" alt="Photo 1">
-            <img src="images/2.JPG" alt="Photo 2">
-            <img src="images/3.JPG" alt="Photo 3">
-            <img src="images/4.JPG" alt="Photo 4">
-            
-            <img src="images/6.JPG" alt="Photo 6">
-            <img src="images/7.JPG" alt="Photo 7">
-            
-            <img src="images/9.JPG" alt="Photo 9">
-           
-        </div>
+  <main>
+    <section class="hero" id="home">
+      <div class="page">
+        <div class="hero-card">
+          <div class="profile-wrap">
+            <!-- Only profile photograph used on the page -->
+            <img class="profile-photo" src="profile.png" alt="डा. सन्तोष पण्डित" width="660" height="660">
+          </div>
 
-        <!-- Personal Info -->
-        <div class="personal-info">
-            <div id="name">
-                <p><h1>Dr. Santosh Pandit</h1></p>
-                <p><h2>Oral and Maxillofacial Surgeon to be</h2></p>
+          <div>
+            <p class="eyebrow">
+              <span data-lang="ne">व्यावसायिक प्रोफाइल</span>
+              <span data-lang="en">Professional Profile</span>
+            </p>
+
+            <h1>Dr. Santosh Pandit</h1>
+
+            <p class="title">
+              <span data-lang="ne">ओरल तथा म्याक्सिलोफेसियल सर्जन</span>
+              <span data-lang="en">Oral &amp; Maxillofacial Surgeon</span>
+            </p>
+
+            <div class="gold-line"></div>
+
+            <p class="intro">
+              <span data-lang="ne">स्वास्थ्य, शल्यचिकित्सा र बिरामीको हेरचाहप्रति समर्पित चिकित्सकीय पेशेवर।</span>
+              <span data-lang="en">A dedicated medical professional focused on oral and maxillofacial surgical care and patient wellbeing.</span>
+            </p>
+
+            <div class="actions">
+              <a class="btn btn-primary" href="tel:+9779841701090">
+                ☎ <span data-lang="ne">फोन गर्नुहोस्</span><span data-lang="en">Call</span>
+              </a>
+              <a class="btn btn-teal" href="https://wa.me/9779841701090?text=Hello%20Dr.%20Santosh%20Pandit,%20I%20found%20your%20personal%20page" target="_blank" rel="noopener">
+                ◌ <span data-lang="ne">WhatsApp</span><span data-lang="en">WhatsApp</span>
+              </a>
+              <a class="btn btn-light" href="mailto:bless288maniac@gmail.com?subject=From%20Dr.%20Santosh%20Pandit's%20profile">
+                ✉ <span data-lang="ne">इमेल</span><span data-lang="en">Email</span>
+              </a>
+              <a class="btn btn-light" href="sms:+9779841701090">
+                ▣ <span data-lang="ne">SMS</span><span data-lang="en">SMS</span>
+              </a>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="page">
+        <div class="section-heading">
+          <h2>
+            <span data-lang="ne">संक्षिप्त परिचय</span>
+            <span data-lang="en">About Dr. Santosh</span>
+          </h2>
+          <p>
+            <span data-lang="ne">आवश्यक जानकारीलाई छोटो, स्पष्ट र पेशागत रूपमा प्रस्तुत गरिएको छ।</span>
+            <span data-lang="en">The essential information, presented clearly and professionally.</span>
+          </p>
         </div>
 
-        <!-- Dropdown for QR Codes -->
-        <div class="dropdown">
-            <button>QR Codes</button>
-            <div class="dropdown-content">
-                <button onclick="showPopup('images/call.png')">&#x1F4F7; Phone</button>
-                <button onclick="showPopup('images/sms.png')">&#x1F4F7; SMS</button>
-                <button onclick="showPopup('images/whatsapp.png')">&#x1F4F7; WhatsApp</button>
-                <button onclick="showPopup('images/email.png')">&#x1F4F7; Email</button>
-                <button onclick="showPopup('images/facebook.png')">&#x1F4F7; Facebook</button>
-                <button onclick="showPopup('images/insta.png')">&#x1F4F7; Instagram</button>
-                <button onclick="showPopup('images/x.png')">&#x1F4F7; X</button>
-                <button onclick="showPopup('images/threads.png')">&#x1F4F7; Threads</button>
-                <button onclick="showPopup('images/vcard_new.png')">&#x1F4F7; Share my Details</button>
-                
-                
+        <div class="info-grid">
+          <article class="info-card">
+            <div class="icon">✚</div>
+            <h3>
+              <span data-lang="ne">विशेषज्ञता</span>
+              <span data-lang="en">Speciality</span>
+            </h3>
+            <p>
+              <span data-lang="ne">ओरल तथा म्याक्सिलोफेसियल सर्जरी</span>
+              <span data-lang="en">Oral &amp; Maxillofacial Surgery</span>
+            </p>
+          </article>
+
+          <article class="info-card">
+            <div class="icon">✓</div>
+            <h3>
+              <span data-lang="ne">व्यावसायिक स्थिति</span>
+              <span data-lang="en">Professional Status</span>
+            </h3>
+            <p>
+              <span data-lang="ne">स्नातक भइसकेका चिकित्सक</span>
+              <span data-lang="en">Graduated medical professional</span>
+            </p>
+          </article>
+
+          <article class="info-card">
+            <div class="icon">♡</div>
+            <h3>
+              <span data-lang="ne">दृष्टिकोण</span>
+              <span data-lang="en">Approach</span>
+            </h3>
+            <p>
+              <span data-lang="ne">बिरामीको स्वास्थ्य, सुरक्षा र सहज अनुभवमा केन्द्रित।</span>
+              <span data-lang="en">Focused on patient care, safety and a comfortable experience.</span>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="social">
+      <div class="page">
+        <div class="section-heading">
+          <h2>
+            <span data-lang="ne">सामाजिक सञ्जाल</span>
+            <span data-lang="en">Social Media</span>
+          </h2>
+          <p>
+            <span data-lang="ne">डिजिटल प्रोफाइल हेर्न तलको सम्बन्धित प्लेटफर्म छान्नुहोस्।</span>
+            <span data-lang="en">Visit the relevant platform to connect with Dr. Santosh online.</span>
+          </p>
+        </div>
+
+        <div class="social-grid">
+          <a class="social" href="https://www.facebook.com/share/wF5E91HYjypFpWhr/?mibextid=qi2Omg" target="_blank" rel="noopener">
+            <span class="social-icon">f</span>
+            Facebook
+            <small>Facebook Profile</small>
+          </a>
+
+          <a class="social" href="https://www.instagram.com/surviving_poisone/" target="_blank" rel="noopener">
+            <span class="social-icon">◎</span>
+            Instagram
+            <small>@surviving_poisone</small>
+          </a>
+
+          <a class="social" href="https://x.com/chelseamania08?t=VV85UYoDh4qg9XoG4F_o_A&s=08" target="_blank" rel="noopener">
+            <span class="social-icon">𝕏</span>
+            X
+            <small>@chelseamania08</small>
+          </a>
+
+          <a class="social" href="https://www.threads.net/@surviving_poisone" target="_blank" rel="noopener">
+            <span class="social-icon">@</span>
+            Threads
+            <small>@surviving_poisone</small>
+          </a>
+
+          <a class="social" href="https://www.tiktok.com/@drsantosh.omfs" target="_blank" rel="noopener">
+            <span class="social-icon">♪</span>
+            TikTok
+            <small>@drsantosh.omfs</small>
+          </a>
+        </div>
+
+        <div class="tools">
+          <button class="btn btn-gold" type="button" onclick="openQR('images/facebook.png')">▣ Facebook QR</button>
+          <button class="btn btn-gold" type="button" onclick="openQR('images/insta.png')">▣ Instagram QR</button>
+          <button class="btn btn-light" type="button" onclick="openQR('images/vcard_new.png')">
+            <span data-lang="ne">▣ सम्पर्क विवरण QR</span>
+            <span data-lang="en">▣ Contact QR</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="video">
+      <div class="page">
+        <div class="section-heading">
+          <h2>
+            <span data-lang="ne">भिडियो</span>
+            <span data-lang="en">Video</span>
+          </h2>
+          <p>
+            <span data-lang="ne">भिडियो हेर्न चाहनुहुन्छ भने मात्र YouTube लोड हुन्छ। यसले सुरुवाती page load हल्का राख्छ।</span>
+            <span data-lang="en">YouTube loads only when you choose to watch the video, keeping the initial page load lightweight.</span>
+          </p>
+        </div>
+
+        <div class="video-card" id="videoCard">
+          <div class="video-placeholder" id="videoPlaceholder">
+            <div>
+              <button class="play" type="button" onclick="loadVideo()" aria-label="Watch video">▶</button>
+              <h3>
+                <span data-lang="ne">भिडियो हेर्नुहोस्</span>
+                <span data-lang="en">Watch Video</span>
+              </h3>
+              <p>
+                <span data-lang="ne">तपाईंले क्लिक गरेपछि मात्र YouTube embedded player लोड हुनेछ।</span>
+                <span data-lang="en">The embedded YouTube player is loaded only after you click the button.</span>
+              </p>
+              <button class="btn btn-teal" type="button" onclick="loadVideo()">
+                <span data-lang="ne">भिडियो खोल्नुहोस्</span>
+                <span data-lang="en">Load Video</span>
+              </button>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="page">
+        <div class="section-heading">
+          <h2>
+            <span data-lang="ne">सम्पर्क</span>
+            <span data-lang="en">Contact</span>
+          </h2>
+          <p>
+            <span data-lang="ne">एक क्लिकमै सम्पर्क वा आफ्नो फोनमा नम्बर सुरक्षित गर्नुहोस्।</span>
+            <span data-lang="en">Contact Dr. Santosh directly or save the contact to your phone.</span>
+          </p>
         </div>
 
-        <!-- Buttons Section -->
-        <div class="buttons-section">
-            <button onclick="window.open('tel:+9779841701090', '_self')">&#x1F4DE; Call</button>
-            <button onclick="window.open('sms:+9779841701090', '_self')">&#x1F4F1; SMS</button>
-            <button onclick="sendWhatsApp()">&#x1F4AC; WhatsApp Message</button>
-            <button onclick="sendEmail()">&#x2709; Send Email</button>
-            
-            <button onclick="window.open('https://www.facebook.com/share/wF5E91HYjypFpWhr/?mibextid=qi2Omg', '_blank')">&#x1F4F7; Facebook</button>
-            <button onclick="window.open('https://www.instagram.com/surviving_poisone/', '_blank')">&#x1F4F7; Instagram</button>
-            <button onclick="window.open('https://x.com/chelseamania08?t=VV85UYoDh4qg9XoG4F_o_A&s=08', '_blank')">&#x1F426; Follow on X</button>
-            <button onclick="window.open('https://www.threads.net/@surviving_poisone', '_blank')">&#x1F9F5; Follow on Threads</button>
-            <!-- Download vCard Button -->
-    <button onclick="downloadVCard()">&#x1F4C1; Save my number</button>
-
-    <script>
-        function downloadVCard() {
-            window.location.href = 'contact.vcf';
-        }
-    </script>
+        <div class="actions" style="max-width:720px;">
+          <a class="btn btn-primary" href="tel:+9779841701090">☎ <span data-lang="ne">+977 9841701090</span><span data-lang="en">+977 9841701090</span></a>
+          <button class="btn btn-light" type="button" onclick="downloadVCard()">▣ <span data-lang="ne">नम्बर सुरक्षित गर्नुहोस्</span><span data-lang="en">Save Contact</span></button>
+          <button class="btn btn-light" type="button" onclick="sharePage()">↗ <span data-lang="ne">पेज शेयर गर्नुहोस्</span><span data-lang="en">Share Page</span></button>
+          <button class="btn btn-gold" type="button" onclick="openQR('images/page.png')">▣ <span data-lang="ne">पेज QR</span><span data-lang="en">Page QR</span></button>
         </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="page">
+      <p>
+        <strong>Dr. Santosh Pandit</strong><br>
+        <span data-lang="ne">ओरल तथा म्याक्सिलोफेसियल सर्जन</span>
+        <span data-lang="en">Oral &amp; Maxillofacial Surgeon</span>
+      </p>
+      <p>
+        <span data-lang="ne">वेबसाइट विकास: Anup Chapain</span>
+        <span data-lang="en">Website developed by Anup Chapain</span>
+      </p>
     </div>
+  </footer>
 
-    <!-- Popup Template for QR Codes -->
-    <div class="popup" id="generic-popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="hidePopup('generic-popup')">&times;</span>
-            <img id="popup-image" src="" alt="QR Code" style="max-width: 300px;">
-        </div>
+  <!-- QR modal -->
+  <div class="modal" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+    <div class="modal-box">
+      <button class="close" type="button" onclick="closeQR()" aria-label="Close">×</button>
+      <h3 id="qrTitle">QR Code</h3>
+      <img id="qrImage" src="" alt="QR Code">
     </div>
+  </div>
 
-    <!-- Footer Section -->
-    <div class="footer">
-        <button onclick="showDeveloperInfo()">About Developer</button>
-        <button onclick="sharePage()">Share This Page</button>
-        <button onclick="showPopup('images/page.png')">Share QR</button>
-    </div>
+  <script>
+    /*
+      ================================================================
+      CONFIGURATION
+      ================================================================
+      Put the YouTube VIDEO ID below when you know the exact video.
+      Example:
+        https://www.youtube.com/watch?v=ABC123XYZ
+        VIDEO_ID = "ABC123XYZ"
 
-    <!-- Popup for Developer Info -->
-    <div class="popup" id="developer-popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="hidePopup('developer-popup')">&times;</span>
-            <p>This page was developed with love by Anup Chapain. For any inquiries or custom page development, feel free to get in touch!</p>
-            <button onclick="sendDeveloperEmail()">Send me an Email</button>
-            <button onclick="window.open('https://www.instagram.com/anupcp/', '_blank')">See Insta</button>
-            
-        </div>
-    </div>
+      The YouTube iframe is intentionally NOT created during page load.
+      It is created only after the visitor clicks "Watch Video".
+    */
+    const VIDEO_ID = "REPLACE_WITH_YOUTUBE_VIDEO_ID";
 
-    <script>
-        // Display Current Date and Time
-        function updateDateTime() {
-            const now = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            document.getElementById('date-time').textContent = now.toLocaleDateString('en-US', options);
+    const body = document.body;
+    const neBtn = document.getElementById("neBtn");
+    const enBtn = document.getElementById("enBtn");
+
+    function setLanguage(language) {
+      const english = language === "en";
+
+      body.classList.toggle("english", english);
+      document.documentElement.lang = english ? "en" : "ne";
+
+      neBtn.classList.toggle("active", !english);
+      enBtn.classList.toggle("active", english);
+
+      try {
+        localStorage.setItem("santosh-language", language);
+      } catch (_) {}
+
+      updateDynamicText();
+    }
+
+    function updateDynamicText() {
+      // Keep document metadata language-appropriate without reloading the page.
+      document.title = body.classList.contains("english")
+        ? "Dr. Santosh Pandit | Oral & Maxillofacial Surgeon"
+        : "डा. सन्तोष पण्डित | ओरल तथा म्याक्सिलोफेसियल सर्जन";
+    }
+
+    // Default is Nepali, as requested. A visitor's previous choice is respected.
+    (function initLanguage() {
+      let saved = null;
+      try { saved = localStorage.getItem("santosh-language"); } catch (_) {}
+      setLanguage(saved === "en" ? "en" : "ne");
+    })();
+
+    function openQR(imageSrc) {
+      const modal = document.getElementById("qrModal");
+      const image = document.getElementById("qrImage");
+
+      image.src = imageSrc;
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeQR() {
+      document.getElementById("qrModal").classList.remove("open");
+      document.getElementById("qrImage").src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.getElementById("qrModal").addEventListener("click", function (event) {
+      if (event.target === this) closeQR();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeQR();
+    });
+
+    function loadVideo() {
+      const card = document.getElementById("videoCard");
+
+      if (!VIDEO_ID || VIDEO_ID === "REPLACE_WITH_YOUTUBE_VIDEO_ID") {
+        const english = body.classList.contains("english");
+        card.innerHTML = `
+          <div class="video-placeholder">
+            <div>
+              <h3>${english ? "YouTube video is ready to be connected" : "YouTube भिडियो जोड्न बाँकी छ"}</h3>
+              <p>${english
+                ? "Set VIDEO_ID near the bottom of index.html to the required YouTube video ID."
+                : "index.html को अन्त्यतिर रहेको VIDEO_ID मा सम्बन्धित YouTube भिडियोको ID राख्नुहोस्।"}</p>
+            </div>
+          </div>`;
+        return;
+      }
+
+      const iframe = document.createElement("iframe");
+      iframe.className = "youtube-frame";
+      iframe.title = "Dr. Santosh Pandit video";
+      iframe.loading = "lazy";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+
+      // YouTube is contacted only now, after explicit user interaction.
+      iframe.src = "https://www.youtube-nocookie.com/embed/" +
+                   encodeURIComponent(VIDEO_ID) +
+                   "?rel=0&modestbranding=1";
+
+      card.replaceChildren(iframe);
+    }
+
+    function downloadVCard() {
+      window.location.href = "contact.vcf";
+    }
+
+    async function sharePage() {
+      const english = body.classList.contains("english");
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: "Dr. Santosh Pandit",
+            text: english
+              ? "Dr. Santosh Pandit's professional profile"
+              : "डा. सन्तोष पण्डितको व्यावसायिक प्रोफाइल",
+            url: window.location.href
+          });
+        } catch (_) {}
+      } else {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          alert(english ? "Page link copied." : "पेजको लिंक कपी भयो।");
+        } catch (_) {
+          alert(english
+            ? "Sharing is not supported on this device."
+            : "यो उपकरणमा sharing सुविधा उपलब्ध छैन।");
         }
-        setInterval(updateDateTime, 1000);
-        updateDateTime();
-
-        // Carousel Logic
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('#carousel img');
-        const totalSlides = slides.length;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.style.display = i === index ? 'block' : 'none';
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        setInterval(nextSlide, 5000); // Change slide every 5 seconds
-        showSlide(currentSlide); // Show first slide initially
-
-        // Welcome Message Logic
-const welcomeMessages = [
-    "Welcome! I'm Dr. Santosh Pandit, and I'm here to ensure your smile is as bright as your future!",
-    "Your teeth are in good hands—mine!",
-    "Let's put a smile on that face, one tooth at a time.",
-    "I’m Dr. Santosh Pandit. Together, we’ll make sure your smile is always your best feature.",
-    "I believe a healthy mouth is a gateway to a healthy life. Let’s walk through it together!",
-    "Welcome! Let’s make sure every smile you share is a masterpiece.",
-    "I promise to take your oral health as seriously as I take my own coffee breaks. And that's serious!",
-    "Sit back, relax, and let’s embark on a journey to your healthiest smile.",
-    "Here, we don’t just fix teeth; we boost confidence!",
-    "Remember, I’m not just a dentist—I’m your partner in keeping your smile healthy and bright.",
-    "Life is too short for bad teeth. Let’s fix that!",
-    "Welcome! Where every tooth counts, and every patient matters.",
-    "I’m here to give you a reason to smile, every day, pain-free.",
-    "Let’s make your smile the best thing you wear today.",
-    "Welcome! Here, laughter is the best medicine, but regular check-ups don’t hurt either!",
-    "Your smile is my canvas. Let's create a masterpiece together.",
-    "Teeth are like diamonds—they last forever when you take good care of them. I’m here to help with that!",
-    "Healthy teeth, happy life—that’s my motto. Let’s make it yours too!",
-    "I’m Dr. Santosh Pandit, and I believe in smiles that last a lifetime.",
-    "Good teeth, good mood, good life. Let’s start today!",
-    "They say laughter is the best medicine—I say it’s a great dentist!",
-    "The road to a great smile starts here. Buckle up!",
-    "I’m not just fixing teeth, I’m building confidence—one smile at a time.",
-    "Welcome! Your smile is the best accessory you have. Let’s keep it shining.",
-    "Here to make sure every visit ends with a smile.",
-    "Every patient is unique, and every smile tells a story. Let’s write yours together.",
-    "Welcome! A smile is the universal language of kindness. Let’s speak it fluently.",
-    "I’m here to protect your teeth, your gums, and your pride. Let’s do this!",
-    "I treat teeth, but I care for people. Let’s get started.",
-    "Welcome! Ready to make those pearly whites sparkle?",
-    "I’m here to remind you that a great smile is always in style.",
-    "Let's turn that frown upside down and keep it that way!",
-    "Your oral health journey starts now, and I'm your guide!",
-    "Welcome! Because your smile deserves the best, and so do you.",
-    "Healthy teeth, happy heart. Let’s work on both!",
-    "I'm here to make sure your smile is unforgettable—for all the right reasons!",
-    "Welcome! Every smile is a unique work of art. Let’s make yours a masterpiece.",
-    "Your journey to a healthier, brighter smile begins with a single step—into my office!",
-    "Because a day without a smile is a day wasted. Let’s not waste any more days!",
-    "I’m here to keep your teeth strong, your gums healthy, and your spirit high.",
-    "Welcome! Let’s make sure your smile reflects the wonderful person you are.",
-    "Think of me as your smile’s personal trainer. Let’s get those teeth in shape!",
-    "I’m here to remind you that the best smile is a healthy one. Let’s create it together.",
-    "Welcome! Your comfort is my priority, and your smile is my mission.",
-    "Because every smile has a story, and I’m here to make sure yours is a happy one.",
-    "Welcome to a place where your smile is my passion, and your health is my mission.",
-    "Together, we’ll make sure your smile lights up every room you walk into.",
-    "Here, it’s not just about teeth—it’s about how you feel when you leave. Let’s make it great!",
-    "Welcome! I’m here to make sure your visits are pain-free and full of smiles.",
-    "Think of me as the guardian of your smile. Let’s keep it safe and sound!",
-    "Welcome! I promise to keep your smile shining bright and your spirits even brighter."
-];
-
-
-        function showWelcomeMessage() {
-            const messageIndex = Math.floor(Math.random() * welcomeMessages.length);
-            document.getElementById('welcome-message').innerText = welcomeMessages[messageIndex];
-        }
-
-        setInterval(showWelcomeMessage, 4000); // Change welcome message every 4 seconds
-        showWelcomeMessage(); // Initial welcome message
-
-        // Popup Logic
-        function showPopup(imageSrc) {
-            const popup = document.getElementById('generic-popup');
-            const popupImage = document.getElementById('popup-image');
-            popupImage.src = imageSrc;
-            popup.style.display = 'flex';
-        }
-
-        function hidePopup(popupId) {
-            document.getElementById(popupId).style.display = 'none';
-        }
-
-        // Send Email Function
-        function sendEmail() {
-            window.location.href = "mailto:bless288maniac@gmail.com?subject=from your personal page";
-        }
-
-        // WhatsApp Message Function
-        function sendWhatsApp() {
-            window.open("https://wa.me/9779841701090?text=Hello%20Dr.%20Santosh%20Pandit,%20I%20found%20your%20personal%20page", "_blank");
-        }
-
-        // Function to share the page using the native share feature
-        function sharePage() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Check out Dr. Santosh Pandit\'s Personal Page!',
-                    text: 'Explore Dr. Santosh Pandit\'s personal page and more!',
-                    url: window.location.href
-                }).then(() => {
-                    console.log('Thanks for sharing!');
-                }).catch((error) => {
-                    console.error('Error sharing:', error);
-                });
-            } else {
-                alert('Sharing is not supported on this device. Please use the QR code instead.');
-            }
-        }
-
-        // Show Developer Info Popup
-        function showDeveloperInfo() {
-            document.getElementById('developer-popup').style.display = 'flex';
-        }
-
-        // Send Email to Developer
-        function sendDeveloperEmail() {
-            window.location.href = "mailto:pleasedontgetconfused@gmail.com?subject=Enquiry From Santosh's page";
-        }
-
-    </script>
+      }
+    }
+  </script>
 </body>
 </html>
